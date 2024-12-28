@@ -110,10 +110,10 @@ with mlflow.start_run() as run:
         logging_thread = threading.Thread(target=log_system_metrics, args=(1, gpu_handle))
         logging_thread.daemon = True
         logging_thread.start()
-    start_time = time.time()
+   # start_time = time.time()
     trainer = Trainer(config, class_names, dataloaders, dataset_sizes)
     model_finetuned = trainer.train_model()
-    end_time = time.time()
+   # end_time = time.time()
 
    # mlflow.log_metric("train duration", end_time-start_time) NO NEED, MLFLOW logs it by default in "Duration section..."
     if config["logging"]["log_artifacts"]:
